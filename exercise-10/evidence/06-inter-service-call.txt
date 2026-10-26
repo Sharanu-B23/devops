@@ -1,0 +1,21 @@
+PS> Invoke-RestMethod "http://localhost:8090/" | ConvertTo-Json -Depth 4
+{
+  "frontend": {
+    "service": "frontend-order-service",
+    "pod": "frontend-order-deployment-64d84f59fc-5c2n8",
+    "node": "minikube-m02",
+    "status": "operational"
+  },
+  "backend_connection": {
+    "target_url": "http://backend-catalog-service:5000/api/items",
+    "status": "connected",
+    "error": null,
+    "data": {
+      "service": "backend-catalog-service",
+      "serviced_by_pod": "backend-catalog-deployment-788bf5cb9d-8d2zw",
+      "serviced_by_node": "minikube-m03",
+      "total_items": 4
+    }
+  }
+}
+[exit code: 0]

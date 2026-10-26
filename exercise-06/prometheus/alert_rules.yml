@@ -1,0 +1,22 @@
+groups:
+  - name: application_alerts
+    rules:
+      - alert: HighSimulatedErrors
+        expr: increase(app_simulated_errors_total[1m]) > 2
+        for: 10s
+        labels:
+          severity: critical
+          team: devops
+        annotations:
+          summary: "High simulated error count on Flask application"
+          description: "Flask application observed {{ $value }} errors in the last 1 minute."
+
+      - alert: FlaskAppDown
+        expr: up{job="flask-app"} == 0
+        for: 15s
+        labels:
+          severity: critical
+          team: devops
+        annotations:
+          summary: "Flask application instance down"
+          description: "Target web:5000 has been unreachable for more than 15 seconds."

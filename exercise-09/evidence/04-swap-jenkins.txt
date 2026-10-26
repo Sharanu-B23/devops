@@ -1,0 +1,7 @@
+﻿PS> "JENKINS_UP: $(Wait-Jenkins -TimeoutSec 300)"
+    docker exec jenkins-lab docker version --format '{{.Server.Version}}'
+    docker exec jenkins-lab python3 --version
+JENKINS_UP: True
+29.9.2
+Python 3.13.5
+[exit code: 0]

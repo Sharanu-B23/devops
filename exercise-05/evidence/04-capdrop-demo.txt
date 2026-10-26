@@ -1,0 +1,3 @@
+﻿PS> docker run --rm --cap-drop ALL alpine:3.20 sh -c "touch /tmp/f && chown 1000 /tmp/f"
+chown: /tmp/f: Operation not permitted
+[exit code: 1]

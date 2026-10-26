@@ -1,0 +1,4 @@
+﻿PS> kubectl --context minikube apply -f exercise-02/k8s/
+deployment.apps/flask-deployment created
+service/flask-service created
+[exit code: 0]

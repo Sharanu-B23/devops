@@ -1,0 +1,24 @@
+﻿PS> $H = Get-JenkinsHeaders
+    $before = Get-JenkinsLastBuildNumber "ex07-freestyle" $H
+    Start-JenkinsBuild "ex07-freestyle" $H
+    $b = Wait-JenkinsBuild "ex07-freestyle" $H $before 240
+    "BUILD_NUMBER: $($b.number) RESULT: $($b.result)"
+    Get-JenkinsConsole "ex07-freestyle" $b.number $H
+BUILD_NUMBER: 1 RESULT: SUCCESS
+Started by user Sharanabasappa Biradar
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ex07-freestyle
+[ex07-freestyle] $ /bin/sh -xe /tmp/jenkins9742444835840361582.sh
++ echo EX07 FREESTYLE START
+EX07 FREESTYLE START
++ whoami
+jenkins
++ date
+Sun Oct 25 04:25:46 UTC 2026
++ uname -a
+Linux cb1903582cc8 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
++ echo EX07 FREESTYLE DONE
+EX07 FREESTYLE DONE
+Finished: SUCCESS
+
+[exit code: 0]

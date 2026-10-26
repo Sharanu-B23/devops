@@ -1,0 +1,6 @@
+PS> (Invoke-RestMethod "http://localhost:9090/api/v1/rules").data.groups.rules | Select-Object name, query, duration, health
+name                query                                       duration health
+----                -----                                       -------- ------
+HighSimulatedErrors increase(app_simulated_errors_total[1m]) > 2      10 ok    
+FlaskAppDown        up{job="flask-app"} == 0                          15 ok    
+[exit code: 0]

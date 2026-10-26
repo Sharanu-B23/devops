@@ -1,0 +1,9 @@
+﻿PS> $pf = Start-PortForward -Context minikube -Target svc/nginx-service -LocalPort 8085 -RemotePort 80
+    $r = Wait-Http "http://localhost:8085/" 200 30
+    "StatusCode: $($r.StatusCode)"
+    ($r.Content -split "`n" | Select-String "Welcome to nginx")
+    Stop-PortForward $pf
+StatusCode: 200
+<title>Welcome to nginx!</title>
+<h1>Welcome to nginx!</h1>
+[exit code: 0]

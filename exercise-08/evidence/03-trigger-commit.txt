@@ -1,0 +1,16 @@
+﻿PS> $H = Get-JenkinsHeaders
+    $baseline = (Get-JenkinsLastBuildNumber "ex08-github-ci" $H)
+    Add-Content exercise-08\trigger.txt ("trigger at " + (Get-Date -Format s))
+    git add exercise-08/trigger.txt
+    git commit -m "exercise-08: trigger CI build"
+    git push
+    "PUSHED_SHA: $(git rev-parse HEAD)"
+    "BASELINE_BUILD: $baseline"
+warning: in the working copy of 'exercise-08/trigger.txt', LF will be replaced by CRLF the next time Git touches it
+[main b3a25ce] exercise-08: trigger CI build
+ 1 file changed, 1 insertion(+)
+To https://github.com/Sharanu-B23/devops_aat.git
+   50e2146..b3a25ce  main -> main
+PUSHED_SHA: b3a25cedf4fe2d7096ef66b9c14980a0b0d54339
+BASELINE_BUILD: 1
+[exit code: 0]

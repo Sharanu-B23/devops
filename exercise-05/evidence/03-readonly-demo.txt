@@ -1,0 +1,3 @@
+﻿PS> docker run --rm --read-only alpine:3.20 sh -c "touch /testfile"
+touch: /testfile: Read-only file system
+[exit code: 1]

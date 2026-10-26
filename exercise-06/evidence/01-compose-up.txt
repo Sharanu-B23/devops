@@ -1,0 +1,14 @@
+PS> docker compose -f exercise-06/docker-compose.yml up -d --build
+[+] Building 31.2s (13/13) FINISHED
+ => => naming to docker.io/library/ex06-flask:1.0
+[+] Running 4/4
+ ✔ Network ex06-monitoring-net  Created
+ ✔ Container ex06-web           Healthy
+ ✔ Container ex06-prometheus    Started
+ ✔ Container ex06-grafana       Started
+PS> docker compose -f exercise-06/docker-compose.yml ps
+NAME              IMAGE                     COMMAND                  SERVICE      STATUS                    PORTS
+ex06-grafana      grafana/grafana:10.4.1    "/run.sh"                grafana      Up 25 seconds             0.0.0.0:3000->3000/tcp
+ex06-prometheus   prom/prometheus:v2.51.0   "/bin/prometheus --c…"   prometheus   Up 25 seconds             0.0.0.0:9090->9090/tcp
+ex06-web          ex06-flask:1.0            "gunicorn --workers …"   web          Up 30 seconds (healthy)   0.0.0.0:5006->5000/tcp
+[exit code: 0]

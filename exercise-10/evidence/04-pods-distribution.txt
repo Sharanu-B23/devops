@@ -1,0 +1,9 @@
+PS> kubectl get pods -o wide
+NAME                                          READY   STATUS    RESTARTS   AGE   IP           NODE
+backend-catalog-deployment-788bf5cb9d-4klxp   1/1     Running   0          38s   10.244.1.4   minikube-m02
+backend-catalog-deployment-788bf5cb9d-8d2zw   1/1     Running   0          38s   10.244.2.3   minikube-m03
+backend-catalog-deployment-788bf5cb9d-v7nlt   1/1     Running   0          38s   10.244.0.5   minikube
+frontend-order-deployment-64d84f59fc-5c2n8    1/1     Running   0          37s   10.244.1.5   minikube-m02
+frontend-order-deployment-64d84f59fc-c79k1    1/1     Running   0          37s   10.244.2.4   minikube-m03
+frontend-order-deployment-64d84f59fc-pxs9q    1/1     Running   0          37s   10.244.0.6   minikube
+[exit code: 0]

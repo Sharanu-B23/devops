@@ -1,0 +1,8 @@
+﻿PS> docker network inspect ex09-net *> $null
+    if ($LASTEXITCODE -ne 0) {
+        docker network create ex09-net
+    }
+    docker network ls --filter name=ex09-net --format '{{.Name}}'
+33c26f57589de99569f2bd132711e1dbb2214f22c10f6cced4e5820e116926d6
+ex09-net
+[exit code: 0]

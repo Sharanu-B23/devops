@@ -1,0 +1,8 @@
+﻿PS> kubectl --context minikube get pods -l app=flask-rs
+NAME             READY   STATUS    RESTARTS   AGE
+flask-rs-6wwrf   1/1     Running   0          47s
+flask-rs-dh687   1/1     Running   0          47s
+flask-rs-h7gn7   1/1     Running   0          23s
+flask-rs-kng7j   1/1     Running   0          47s
+flask-rs-whz4w   1/1     Running   0          23s
+[exit code: 0]

@@ -1,0 +1,5 @@
+﻿PS> kubectl --context minikube get pods -l app=flask-app -o wide
+NAME                                READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+flask-deployment-5f489945dd-bcrpp   1/1     Running   0          18s   10.244.0.6   minikube   <none>           <none>
+flask-deployment-5f489945dd-tgzk2   1/1     Running   0          18s   10.244.0.5   minikube   <none>           <none>
+[exit code: 0]

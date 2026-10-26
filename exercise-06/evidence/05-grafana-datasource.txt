@@ -1,0 +1,5 @@
+PS> Invoke-RestMethod "http://admin:admin@localhost:3000/api/datasources" | Select-Object id, name, type, url, isDefault, readOnly
+id name       type       url                    isDefault readOnly
+-- ----       ----       ---                    --------- --------
+ 1 Prometheus prometheus http://prometheus:9090      True     True
+[exit code: 0]

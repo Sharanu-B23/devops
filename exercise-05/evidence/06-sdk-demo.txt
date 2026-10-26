@@ -1,0 +1,10 @@
+﻿PS> exercise-05\.venv\Scripts\python.exe exercise-05\docker_demo.py
+DOCKER SERVER VERSION: 29.9.2
+EXISTING CONTAINERS:
+   786306c0f5ac minikube running
+STARTED: ex05-temp-demo status = running
+EXEC EXIT CODE: 0
+EXEC OUTPUT: hello from exec
+LOGS: log-line-from-demo
+REMOVED: ex05-temp-demo
+[exit code: 0]

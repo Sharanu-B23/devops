@@ -1,0 +1,16 @@
+﻿PS> $pf = Start-PortForward -Context minikube -Target svc/flask-rs-service -LocalPort 8087 -RemotePort 80
+    1..6 | ForEach-Object { (Invoke-WebRequest http://localhost:8087/ -UseBasicParsing).Content }
+    Stop-PortForward $pf
+{"message":"Hello from ReplicaSet demo","pod":"flask-rs-kng7j"}
+
+{"message":"Hello from ReplicaSet demo","pod":"flask-rs-kng7j"}
+
+{"message":"Hello from ReplicaSet demo","pod":"flask-rs-kng7j"}
+
+{"message":"Hello from ReplicaSet demo","pod":"flask-rs-kng7j"}
+
+{"message":"Hello from ReplicaSet demo","pod":"flask-rs-kng7j"}
+
+{"message":"Hello from ReplicaSet demo","pod":"flask-rs-kng7j"}
+
+[exit code: 0]

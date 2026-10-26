@@ -1,0 +1,12 @@
+﻿PS> "mysql: $(Wait-Healthy ex04-mysql 150)"
+    "redis: $(Wait-Healthy ex04-redis 60)"
+    "web: $(Wait-Healthy ex04-web 120)"
+    docker compose -f exercise-04/docker-compose.yml ps
+mysql: True
+redis: True
+web: True
+NAME         IMAGE                 COMMAND                  SERVICE   CREATED              STATUS                        PORTS
+ex04-mysql   mysql:8.0             "docker-entrypoint.s…"   mysql     About a minute ago   Up About a minute (healthy)   3306/tcp, 33060/tcp
+ex04-redis   redis:7-alpine        "docker-entrypoint.s…"   redis     About a minute ago   Up About a minute (healthy)   6379/tcp
+ex04-web     ex04-networking-web   "gunicorn --workers …"   web       About a minute ago   Up 21 seconds (healthy)       0.0.0.0:5004->5000/tcp, [::]:5004->5000/tcp
+[exit code: 0]

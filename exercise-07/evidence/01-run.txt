@@ -1,0 +1,21 @@
+﻿PS> if (-not (Test-PortFree 8081)) {
+        "PORT 8081 BUSY"
+        Get-NetTCPConnection -LocalPort 8081 -State Listen
+    }
+    docker volume create jenkins_home
+    $exists = docker ps -a --filter name=jenkins-lab --format '{{.Names}}'
+    if ($exists -eq "jenkins-lab") {
+        docker start jenkins-lab
+    } else {
+        docker run -d --name jenkins-lab -p 8081:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+    }
+jenkins_home
+Unable to find image 'jenkins/jenkins:lts' locally
+lts: Pulling from jenkins/jenkins
+Digest: sha256:a660310e39ade10631f774bacd5219de767dfd08947ea5c32a739b5e5bb382c1
+Status: Downloaded newer image for jenkins/jenkins:lts
+65e9b91c3d8f2f06e613929f76c25aaca9e9d97c85eb6bfc57cc42eedb7d06e1
+docker: Error response from daemon: unable to find user jenkins: no matching entries in passwd file
+System.Management.Automation.RemoteException
+Run 'docker run --help' for more information
+[exit code: 125]

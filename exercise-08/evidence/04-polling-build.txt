@@ -1,0 +1,48 @@
+﻿PS> $H = Get-JenkinsHeaders
+    $baseline = [int](Get-Content exercise-08\evidence\03-trigger-commit.txt | Select-String "BASELINE_BUILD: (\d+)" | ForEach-Object { $_.Matches[0].Groups[1].Value })
+    $b2 = Wait-JenkinsBuild "ex08-github-ci" $H $baseline 420
+    "NEW_BUILD_NUMBER: $($b2.number) RESULT: $($b2.result)"
+    $c = Get-JenkinsConsole "ex08-github-ci" $b2.number $H
+    "STARTED_BY_SCM_CHANGE: $($c -match 'Started by an SCM change')"
+    "CONTAINS_PUSHED_SHA: $($c -match (git rev-parse HEAD))"
+    $c
+NEW_BUILD_NUMBER: 2 RESULT: SUCCESS
+STARTED_BY_SCM_CHANGE: True
+CONTAINS_PUSHED_SHA: True
+Started by an SCM change
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ex08-github-ci
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/ex08-github-ci/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Sharanu-B23/devops_aat.git # timeout=10
+Fetching upstream changes from https://github.com/Sharanu-B23/devops_aat.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/Sharanu-B23/devops_aat.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision b3a25cedf4fe2d7096ef66b9c14980a0b0d54339 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b3a25cedf4fe2d7096ef66b9c14980a0b0d54339 # timeout=10
+Commit message: "exercise-08: trigger CI build"
+ > git rev-list --no-walk 50e21468183807b8961f32ec8ff951ea42d14a53 # timeout=10
+[ex08-github-ci] $ /bin/sh -xe /tmp/jenkins17170159865592076980.sh
++ echo EX08 CI START
+EX08 CI START
++ git log -1 --oneline
+b3a25ce exercise-08: trigger CI build
++ ls -la exercise-08
+total 16
+drwxr-xr-x  3 jenkins jenkins 4096 Oct 25 05:41 .
+drwxr-xr-x 11 jenkins jenkins 4096 Oct 25 05:40 ..
+drwxr-xr-x  2 jenkins jenkins 4096 Oct 25 05:40 jobs
+-rw-r--r--  1 jenkins jenkins   57 Oct 25 05:41 trigger.txt
++ cat exercise-08/trigger.txt
+CI trigger file - initial
+trigger at 2026-10-25T11:10:31
++ echo EX08 CI DONE
+EX08 CI DONE
+Finished: SUCCESS
+
+[exit code: 0]

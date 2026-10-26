@@ -1,0 +1,3 @@
+﻿PS> docker ps -a --filter "name=ex05-temp-demo" --format '{{.Names}}'
+
+[exit code: 0]

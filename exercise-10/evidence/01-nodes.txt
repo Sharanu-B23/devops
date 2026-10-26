@@ -1,0 +1,6 @@
+PS> kubectl get nodes -o wide
+NAME           STATUS   ROLES           AGE   VERSION   INTERNAL-IP   OS-IMAGE             KERNEL-VERSION
+minikube       Ready    control-plane   25m   v1.30.0   192.168.49.2  Ubuntu 22.04.4 LTS   5.15.153.1-microsoft
+minikube-m02   Ready    <none>          24m   v1.30.0   192.168.49.3  Ubuntu 22.04.4 LTS   5.15.153.1-microsoft
+minikube-m03   Ready    <none>          23m   v1.30.0   192.168.49.4  Ubuntu 22.04.4 LTS   5.15.153.1-microsoft
+[exit code: 0]

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: flask-rs
+  labels:
+    app: flask-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-rs
+  template:
+    metadata:
+      labels:
+        app: flask-rs
+    spec:
+      containers:
+        - name: flask
+          image: ex03-flask:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 250m
+              memory: 192Mi

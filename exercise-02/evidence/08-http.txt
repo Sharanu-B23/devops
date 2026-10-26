@@ -1,0 +1,9 @@
+﻿PS> $pf = Start-PortForward -Context minikube -Target svc/flask-service -LocalPort 8086 -RemotePort 80
+    "ROOT:   " + (Invoke-WebRequest http://localhost:8086/ -UseBasicParsing).Content
+    "HEALTH: " + (Invoke-WebRequest http://localhost:8086/health -UseBasicParsing).Content
+    Stop-PortForward $pf
+ROOT:   {"message":"Hello from Flask on Kubernetes","version":"1.0"}
+
+HEALTH: {"status":"healthy"}
+
+[exit code: 0]

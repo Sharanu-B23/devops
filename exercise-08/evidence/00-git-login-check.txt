@@ -1,0 +1,8 @@
+﻿PS> $helper = git config --global credential.helper
+    if (-not $helper) {
+        git config --global credential.helper manager
+        $helper = git config --global credential.helper
+    }
+    "CREDENTIAL_HELPER: $helper"
+CREDENTIAL_HELPER: manager
+[exit code: 0]

@@ -1,0 +1,6 @@
+﻿PS> docker exec ex04-web python -c "import socket; print('mysql ->', socket.gethostbyname('mysql')); print('redis ->', socket.gethostbyname('redis'))"
+    docker network inspect ex04-networking_appnet --format '{{range .Containers}}{{.Name}} {{end}}'
+mysql -> 172.18.0.2
+redis -> 172.18.0.3
+ex04-redis ex04-web ex04-mysql 
+[exit code: 0]

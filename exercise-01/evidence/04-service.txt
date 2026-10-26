@@ -1,0 +1,4 @@
+﻿PS> kubectl --context minikube get svc nginx-service
+NAME            TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+nginx-service   NodePort   10.110.85.13   <none>        80:30080/TCP   37s
+[exit code: 0]

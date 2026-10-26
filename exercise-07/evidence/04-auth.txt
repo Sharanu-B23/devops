@@ -1,0 +1,8 @@
+﻿PS> $H = Get-JenkinsHeaders
+    if (-not $H) {
+        "NO CREDENTIALS"
+    } else {
+        (Invoke-RestMethod "$JenkinsUrl/api/json?tree=mode,nodeDescription" -Headers $H) | ConvertTo-Json -Compress
+    }
+{"_class":"hudson.model.Hudson","mode":"NORMAL","nodeDescription":"the Jenkins controller\u0027s built-in node"}
+[exit code: 0]

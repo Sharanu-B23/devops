@@ -1,0 +1,5 @@
+﻿PS> kubectl --context minikube get pods -l app=nginx -o wide
+NAME                               READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+nginx-deployment-c68859594-zn6w5   1/1     Running   0          36s   10.244.0.3   minikube   <none>           <none>
+nginx-deployment-c68859594-zzxbg   1/1     Running   0          36s   10.244.0.4   minikube   <none>           <none>
+[exit code: 0]

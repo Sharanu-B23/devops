@@ -1,0 +1,16 @@
+﻿PS> kubectl --context minikube scale rs/flask-rs --replicas=5
+    $ok = Wait-ReadyCount -Context minikube -Kind rs -Name flask-rs -Want 5 -TimeoutSec 150
+    "READY5: $ok"
+    kubectl --context minikube get rs flask-rs
+    kubectl --context minikube get pods -l app=flask-rs
+replicaset.apps/flask-rs scaled
+READY5: True
+NAME       DESIRED   CURRENT   READY   AGE
+flask-rs   5         5         5       45s
+NAME             READY   STATUS    RESTARTS   AGE
+flask-rs-6wwrf   1/1     Running   0          45s
+flask-rs-dh687   1/1     Running   0          45s
+flask-rs-h7gn7   1/1     Running   0          21s
+flask-rs-kng7j   1/1     Running   0          45s
+flask-rs-whz4w   1/1     Running   0          21s
+[exit code: 0]

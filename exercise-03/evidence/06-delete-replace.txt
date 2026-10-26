@@ -1,0 +1,22 @@
+﻿PS> $victim = kubectl --context minikube get pods -l app=flask-rs -o jsonpath='{.items[0].metadata.name}'
+    "VICTIM: $victim"
+    kubectl --context minikube delete pod $victim
+    $deadline = (Get-Date).AddSeconds(120); $good = $false
+    while ((Get-Date) -lt $deadline) {
+        $names = (kubectl --context minikube get pods -l app=flask-rs -o jsonpath='{.items[*].metadata.name}') -split ' ' | Where-Object { $_ }
+        $ready = kubectl --context minikube get rs flask-rs -o jsonpath='{.status.readyReplicas}'
+        if (($names.Count -eq 5) -and ($names -notcontains $victim) -and ("$ready" -eq "5")) { $good = $true; break }
+        Start-Sleep -Seconds 3
+    }
+    "REPLACEMENT_CREATED: $good"
+    kubectl --context minikube get pods -l app=flask-rs
+VICTIM: flask-rs-6wwrf
+pod "flask-rs-6wwrf" deleted from default namespace
+REPLACEMENT_CREATED: True
+NAME             READY   STATUS    RESTARTS   AGE
+flask-rs-4jsfr   1/1     Running   0          15s
+flask-rs-dh687   1/1     Running   0          64s
+flask-rs-h7gn7   1/1     Running   0          40s
+flask-rs-kng7j   1/1     Running   0          64s
+flask-rs-whz4w   1/1     Running   0          40s
+[exit code: 0]

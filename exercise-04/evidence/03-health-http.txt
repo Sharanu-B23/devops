@@ -1,0 +1,4 @@
+﻿PS> (Wait-Http "http://localhost:5004/health" 200 60).Content
+{"mysql":"ok","redis":"ok"}
+
+[exit code: 0]

@@ -1,0 +1,4 @@
+﻿PS> kubectl --context minikube apply -f exercise-01/deployment.yaml -f exercise-01/service.yaml
+deployment.apps/nginx-deployment created
+service/nginx-service created
+[exit code: 0]

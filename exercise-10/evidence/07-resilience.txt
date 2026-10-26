@@ -1,0 +1,8 @@
+PS> kubectl delete pod backend-catalog-deployment-788bf5cb9d-4klxp
+pod "backend-catalog-deployment-788bf5cb9d-4klxp" deleted
+PS> kubectl get pods -l app=backend-catalog -o wide
+NAME                                          READY   STATUS    RESTARTS   AGE   IP           NODE
+backend-catalog-deployment-788bf5cb9d-8d2zw   1/1     Running   0          2m    10.244.2.3   minikube-m03
+backend-catalog-deployment-788bf5cb9d-m4p9q   1/1     Running   0          5s    10.244.1.6   minikube-m02
+backend-catalog-deployment-788bf5cb9d-v7nlt   1/1     Running   0          2m    10.244.0.5   minikube
+[exit code: 0]

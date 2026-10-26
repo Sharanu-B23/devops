@@ -1,0 +1,4 @@
+﻿PS> kubectl --context minikube apply -f exercise-03/k8s/
+replicaset.apps/flask-rs created
+service/flask-rs-service created
+[exit code: 0]

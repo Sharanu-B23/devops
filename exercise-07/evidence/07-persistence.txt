@@ -1,0 +1,10 @@
+﻿PS> $H = Get-JenkinsHeaders
+    docker restart jenkins-lab
+    "JENKINS_UP: $(Wait-Jenkins -TimeoutSec 300)"
+    (Invoke-RestMethod "$JenkinsUrl/job/ex07-freestyle/api/json?tree=name" -Headers $H).name
+    docker volume ls --filter name=jenkins_home --format '{{.Name}}'
+jenkins-lab
+JENKINS_UP: True
+ex07-freestyle
+jenkins_home
+[exit code: 0]

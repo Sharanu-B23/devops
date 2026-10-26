@@ -1,0 +1,46 @@
+﻿PS> $H = Get-JenkinsHeaders
+    $before = Get-JenkinsLastBuildNumber "ex08-github-ci" $H
+    Start-JenkinsBuild "ex08-github-ci" $H
+    $b = Wait-JenkinsBuild "ex08-github-ci" $H $before 300
+    "BUILD_NUMBER: $($b.number) RESULT: $($b.result)"
+    Get-JenkinsConsole "ex08-github-ci" $b.number $H
+BUILD_NUMBER: 1 RESULT: SUCCESS
+Started by user Sharanabasappa Biradar
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ex08-github-ci
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/Sharanu-B23/devops_aat.git
+ > git init /var/jenkins_home/workspace/ex08-github-ci # timeout=10
+Fetching upstream changes from https://github.com/Sharanu-B23/devops_aat.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/Sharanu-B23/devops_aat.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/Sharanu-B23/devops_aat.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 50e21468183807b8961f32ec8ff951ea42d14a53 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 50e21468183807b8961f32ec8ff951ea42d14a53 # timeout=10
+Commit message: "exercise-08: initial trigger file and templates"
+First time build. Skipping changelog.
+[ex08-github-ci] $ /bin/sh -xe /tmp/jenkins10758451784249099615.sh
++ echo EX08 CI START
+EX08 CI START
++ git log -1 --oneline
+50e2146 exercise-08: initial trigger file and templates
++ ls -la exercise-08
+total 16
+drwxr-xr-x  3 jenkins jenkins 4096 Oct 25 05:40 .
+drwxr-xr-x 11 jenkins jenkins 4096 Oct 25 05:40 ..
+drwxr-xr-x  2 jenkins jenkins 4096 Oct 25 05:40 jobs
+-rw-r--r--  1 jenkins jenkins   26 Oct 25 05:40 trigger.txt
++ cat exercise-08/trigger.txt
+CI trigger file - initial
++ echo EX08 CI DONE
+EX08 CI DONE
+Finished: SUCCESS
+
+[exit code: 0]

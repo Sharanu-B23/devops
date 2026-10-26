@@ -1,0 +1,5 @@
+﻿PS> $H = Get-JenkinsHeaders
+    Set-JenkinsJob -Name "ex08-github-ci" -XmlPath "exercise-08\jobs\ex08-github-ci.generated.xml" -Headers $H
+    (Invoke-RestMethod "$JenkinsUrl/job/ex08-github-ci/api/json?tree=name" -Headers $H).name
+ex08-github-ci
+[exit code: 0]

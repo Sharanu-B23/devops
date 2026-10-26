@@ -1,0 +1,5 @@
+PS> kubectl get svc backend-catalog-service frontend-order-service
+NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+backend-catalog-service   ClusterIP   10.108.140.210   <none>        5000/TCP       45s
+frontend-order-service    NodePort    10.104.92.51     <none>        80:30090/TCP   45s
+[exit code: 0]

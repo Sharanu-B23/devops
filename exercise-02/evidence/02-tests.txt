@@ -1,0 +1,15 @@
+﻿PS> Set-Location exercise-02\app
+    .\.venv\Scripts\python.exe -m pytest -v
+    Set-Location D:\devops
+============================= test session starts =============================
+platform win32 -- Python 3.14.4, pytest-8.3.2, pluggy-1.7.0 -- D:\devops\exercise-02\app\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\devops\exercise-02\app
+collecting ... collected 3 items
+
+test_app.py::test_index_returns_200_and_message PASSED                   [ 33%]
+test_app.py::test_health_returns_healthy PASSED                          [ 66%]
+test_app.py::test_unknown_route_returns_404 PASSED                       [100%]
+
+============================== 3 passed in 1.13s ==============================
+[exit code: 0]

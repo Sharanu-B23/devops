@@ -1,0 +1,45 @@
+﻿PS> $before = ((Invoke-WebRequest http://localhost:5004/ -UseBasicParsing).Content | ConvertFrom-Json).mysql_rows
+    docker compose -f exercise-04/docker-compose.yml down
+    docker compose -f exercise-04/docker-compose.yml up -d
+    "mysql: $(Wait-Healthy ex04-mysql 150)"
+    "web: $(Wait-Healthy ex04-web 120)"
+    $after = ((Wait-Http "http://localhost:5004/" 200 60).Content | ConvertFrom-Json).mysql_rows
+    "ROWS_BEFORE=$before ROWS_AFTER=$after PERSISTED=$($after -gt $before)"
+ Container ex04-web Stopping 
+ Container ex04-web Stopped 
+ Container ex04-web Removing 
+ Container ex04-web Removed 
+ Container ex04-mysql Stopping 
+ Container ex04-redis Stopping 
+ Container ex04-redis Stopped 
+ Container ex04-redis Removing 
+ Container ex04-redis Removed 
+ Container ex04-mysql Stopped 
+ Container ex04-mysql Removing 
+ Container ex04-mysql Removed 
+ Network ex04-networking_appnet Removing 
+ Network ex04-networking_appnet Removed 
+ Network ex04-networking_appnet Creating 
+ Network ex04-networking_appnet Creating 
+ Network ex04-networking_appnet Created 
+ Network ex04-networking_appnet Created 
+ Container ex04-redis Creating 
+ Container ex04-mysql Creating 
+ Container ex04-mysql Created 
+ Container ex04-redis Created 
+ Container ex04-web Creating 
+ Container ex04-web Created 
+ Container ex04-mysql Starting 
+ Container ex04-redis Starting 
+ Container ex04-mysql Started 
+ Container ex04-redis Started 
+ Container ex04-mysql Waiting 
+ Container ex04-redis Waiting 
+ Container ex04-redis Healthy 
+ Container ex04-mysql Healthy 
+ Container ex04-web Starting 
+ Container ex04-web Started 
+mysql: True
+web: True
+ROWS_BEFORE=3 ROWS_AFTER=4 PERSISTED=True
+[exit code: 0]

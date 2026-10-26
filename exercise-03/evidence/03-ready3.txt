@@ -1,0 +1,12 @@
+﻿PS> $ok = Wait-ReadyCount -Context minikube -Kind rs -Name flask-rs -Want 3 -TimeoutSec 150
+    "READY3: $ok"
+    kubectl --context minikube get rs flask-rs
+    kubectl --context minikube get pods -l app=flask-rs -o wide
+READY3: True
+NAME       DESIRED   CURRENT   READY   AGE
+flask-rs   3         3         3       24s
+NAME             READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+flask-rs-6wwrf   1/1     Running   0          24s   10.244.0.8   minikube   <none>           <none>
+flask-rs-dh687   1/1     Running   0          24s   10.244.0.9   minikube   <none>           <none>
+flask-rs-kng7j   1/1     Running   0          24s   10.244.0.7   minikube   <none>           <none>
+[exit code: 0]

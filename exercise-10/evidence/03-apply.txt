@@ -1,0 +1,7 @@
+PS> kubectl apply -f exercise-10/k8s/
+configmap/microservices-config created
+deployment.apps/backend-catalog-deployment created
+service/backend-catalog-service created
+deployment.apps/frontend-order-deployment created
+service/frontend-order-service created
+[exit code: 0]

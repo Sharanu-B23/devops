@@ -1,0 +1,4 @@
+﻿PS> minikube -p minikube image load ex02-flask:1.0
+    minikube -p minikube image ls | Select-String "ex02-flask"
+docker.io/library/ex02-flask:1.0
+[exit code: 0]

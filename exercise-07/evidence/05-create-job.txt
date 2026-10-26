@@ -1,0 +1,5 @@
+﻿PS> $H = Get-JenkinsHeaders
+    Set-JenkinsJob -Name "ex07-freestyle" -XmlPath "exercise-07\jobs\ex07-freestyle.xml" -Headers $H
+    (Invoke-RestMethod "$JenkinsUrl/job/ex07-freestyle/api/json?tree=name" -Headers $H).name
+ex07-freestyle
+[exit code: 0]

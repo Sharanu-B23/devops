@@ -1,0 +1,56 @@
+﻿PS> docker build -t ex03-flask:1.0 exercise-03/app
+    minikube -p minikube image load ex03-flask:1.0
+    minikube -p minikube image ls | Select-String "ex03-flask"
+#0 building with "desktop-linux" instance using docker driver
+System.Management.Automation.RemoteException
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 361B 0.0s done
+#1 DONE 0.1s
+System.Management.Automation.RemoteException
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 1.9s
+System.Management.Automation.RemoteException
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+System.Management.Automation.RemoteException
+#4 [internal] load build context
+#4 DONE 0.0s
+System.Management.Automation.RemoteException
+#5 [1/6] FROM docker.io/library/python:3.12-slim@sha256:a0f57064cbdcd6285fa45f51237ab0b35ea8ebaed06a1f5973e89e19dfb86704
+#5 resolve docker.io/library/python:3.12-slim@sha256:a0f57064cbdcd6285fa45f51237ab0b35ea8ebaed06a1f5973e89e19dfb86704 0.1s done
+#5 DONE 0.1s
+System.Management.Automation.RemoteException
+#4 [internal] load build context
+#4 transferring context: 443B 0.0s done
+#4 DONE 0.0s
+System.Management.Automation.RemoteException
+#6 [2/6] WORKDIR /app
+#6 CACHED
+System.Management.Automation.RemoteException
+#7 [3/6] COPY requirements.txt .
+#7 CACHED
+System.Management.Automation.RemoteException
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+System.Management.Automation.RemoteException
+#9 [5/6] COPY app.py .
+#9 DONE 0.1s
+System.Management.Automation.RemoteException
+#10 [6/6] RUN useradd --create-home --uid 10001 appuser
+#10 DONE 2.8s
+System.Management.Automation.RemoteException
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.2s done
+#11 exporting manifest sha256:7787d862d2599264630cb5dcf666ca55fdfa945292a0a375f34a472a747ec59c 0.0s done
+#11 exporting config sha256:c274d739aa085e3abae9efe0b1f87615f4577d3714ff74632d5ba081f4c96897 0.0s done
+#11 exporting attestation manifest sha256:3e57fef0c76eca4230e78c5be110833c42c75e3a47ed32a2f69fa2bbf591def9
+#11 exporting attestation manifest sha256:3e57fef0c76eca4230e78c5be110833c42c75e3a47ed32a2f69fa2bbf591def9 0.0s done
+#11 exporting manifest list sha256:44b8a8174521d1b9fc7551846982d64aee2f0ae86962a8f21aa1a8dd582f6dc9 0.0s done
+#11 naming to docker.io/library/ex03-flask:1.0 done
+#11 unpacking to docker.io/library/ex03-flask:1.0
+#11 unpacking to docker.io/library/ex03-flask:1.0 0.3s done
+#11 DONE 0.8s
+docker.io/library/ex03-flask:1.0
+[exit code: 0]

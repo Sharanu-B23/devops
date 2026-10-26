@@ -1,0 +1,11 @@
+﻿PS> $a = (Invoke-WebRequest http://localhost:5004/ -UseBasicParsing).Content | ConvertFrom-Json
+    $b = (Invoke-WebRequest http://localhost:5004/ -UseBasicParsing).Content | ConvertFrom-Json
+    "FIRST : mysql_rows=$($a.mysql_rows) redis_hits=$($a.redis_hits)"
+    "SECOND: mysql_rows=$($b.mysql_rows) redis_hits=$($b.redis_hits)"
+    "MYSQL_INCREMENTED: $($b.mysql_rows -eq $a.mysql_rows + 1)"
+    "REDIS_INCREMENTED: $($b.redis_hits -eq $a.redis_hits + 1)"
+FIRST : mysql_rows=1 redis_hits=1
+SECOND: mysql_rows=2 redis_hits=2
+MYSQL_INCREMENTED: True
+REDIS_INCREMENTED: True
+[exit code: 0]

@@ -1,0 +1,5 @@
+﻿PS> "JENKINS_UP: $(Wait-Jenkins -TimeoutSec 300)"
+    docker ps --filter name=jenkins-lab --format '{{.Names}} {{.Status}} {{.Ports}}'
+JENKINS_UP: True
+jenkins-lab Up 38 seconds 0.0.0.0:50000->50000/tcp, [::]:50000->50000/tcp, 0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+[exit code: 0]
